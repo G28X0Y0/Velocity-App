@@ -26,3 +26,6 @@ This project was built using Vue.js for the client, and Java for the backend.
 
 ## Project status
 This is an ongiong personal project of mine to learn more about vue.js and declarative programming. My goal here is to use this to show an understanding of full stack development and SOLID principles. If you are interested in hearing more, feel free to contact me.
+
+## Acknowledgements
+A huge thanks to Mark, Andrew, and Madeline for helping this project come to life. I wish you all the very best. (See contributors)
