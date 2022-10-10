@@ -1,5 +1,3 @@
-# Capstone Starter Project
-
 ## Database
 
 Inside the `<project-root>/database/` directory, you'll find an executable Bash script (`.sh` file) and several SQL scripts (`.sql` files). These can be used to build and rebuild a PostgreSQL database for the capstone project.
@@ -33,7 +31,7 @@ The database superuser—meaning `postgres`—must only be used for database adm
 
 
 ## Spring Boot
-Note: Spring Boot has been configured to run on port `9000` for this project. You might be used to port `8080` from earlier in the cohort, but it's changed so as not to conflict with the Vue server that you'll be running concurrently.
+Note: Spring Boot has been configured to run on port `9000` for this project.
 
 ### Datasource
 
@@ -48,8 +46,7 @@ spring.datasource.password=finalcapstone
 ```
 
 ### JdbcTemplate
-
-If you look in `/src/main/java/com/techelevator/dao`, you'll see `JdbcUserDao`. This is an example of how to get an instance of `JdbcTemplate` in your DAOs. If you declare a field of type `JdbcTemplate` and add it as an argument to the constructor, Spring automatically injects an instance for you:
+All queries are made using JdbcTemplate. You can look under dao to see more.
 
 ```java
 @Service
@@ -63,10 +60,8 @@ public class JdbcUserDao implements UserDao {
 }
 ```
 
-### CORS
-
-Any controller that'll be accessed from a client like the Vue Starter application needs the `@CrossOrigin` annotation. This
-tells the browser that you're allowing the client application to access this resource:
+###CORS
+Uses cors @CrossOrigin
 
 ```java
 @RestController
@@ -75,27 +70,3 @@ public class AuthenticationController {
     // ...
 }
 ```
-
-## Security
-
-Most of the functionality related to Security is located in the `/src/main/java/com/techelevator/security` package. You shouldn't have to modify anything here, but feel free to go through the code if you want to see how things work.
-
-### Authentication Controller
-
-There is a single controller in the `com.techelevator.controller` package called `AuthenticationController.java`.
-
-This controller contains the `/login` and `/register` routes and works with the Vue starter as is. If you need to modify the user registration form, start here.
-
-The authentication controller uses the `JdbcUserDao` to read and write data from the users table.
-
-
-## Testing
-
-
-### DAO integration tests
-
-`com.techelevator.dao.BaseDaoTests` has been provided for you to use as a base class for any DAO integration test. It initializes a Datasource for testing and manages rollback of database changes between tests.
-
-`com.techelevator.dao.JdbUserDaoTests` has been provided for you as an example for writing your own DAO integration tests.
-
-Remember that when testing, you're using a copy of the real database. The schema and data for the test database are defined within `/src/test/resources/test-data.sql`.
