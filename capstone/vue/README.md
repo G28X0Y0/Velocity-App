@@ -1,10 +1,6 @@
-# Final Vue Capstone Project Seed
-
-This is the Vue starter project for the final capstone. This document walks you through how to set up and run the project. It also explains the project's features, such as Vue Router, Vuex, and authentication.
-
 ## Project setup
 
-The first thing you'll need to do is to download any dependencies by running this command:
+The first thing you'll need to do is to download any dependencies by running:
 
 ```
 npm install
@@ -13,16 +9,13 @@ npm install
 Next you'll need to open the `.env` file that's located in the root of the project. You can store the environment variables that you want to use throughout your application in this file. When you open it, it'll look like this:
 
 ```
-# Java
 VUE_APP_REMOTE_API=http://localhost:8080
 
-# .NET
-VUE_APP_REMOTE_API=https://localhost:44358
 ```
 
 Your Vue frontend communicates with this API endpoint to authenticate and register users.
 
-Before moving on, you'll need to modify the `.env` file. If you're a Java student, remove the .NET API endpoint from the `.env` file. If you're a .NET student, remove the Java API endpoint from the `.env` file. Make sure the URL is correct, and then save the file.
+
 
 The last thing to do is start the back-end application before you work on the front-end application. Start your application with the following command:
 
@@ -49,7 +42,7 @@ router.beforeEach((to, from, next) => {
 });
 ```
 
-This is a feature of Vue Router called [Navigation Guards](https://router.vuejs.org/guide/advanced/navigation-guards.html). You may not have learned about this in class, so take some time to read through the documentation to learn what they are and how they work.
+This is a feature of Vue Router called [Navigation Guards](https://router.vuejs.org/guide/advanced/navigation-guards.html).
 
 The above code runs before each route. It first checks to see if the route requires authentication that is defined per route using the meta object key `requiresAuth`.
 
@@ -119,7 +112,7 @@ The state for this application is stored in `/store/index.js` using Vuex. The st
 
 The authentication token is sent in the `Authorization` header to verify your identify. To persist this token when the application is closed or the page is refreshed, you'll store the token in local storage.
 
-The default token either comes from local storage or it is set to an empty string. As you learned in the previous section, if the route requires authentication and this token is empty, it redirects the user to the login page:
+The default token either comes from local storage or it is set to an empty string. If the route requires authentication and this token is empty, it redirects the user to the login page:
 
 ```js
 const currentToken = localStorage.getItem('token')
@@ -132,8 +125,6 @@ export default new Vuex.Store({
 ```
 
 ### Login
-
-When you reach the `/login` route, you'll see a bare login page. This is intentional. It's up to you to style this page to fit within your application.
 
 When you fill in a username and password and click the "Sign In" button, the method `login()` is called. The `login()` method uses the `/src/services/AuthService.js` to send a `POST` request to your API's `/login` route.
 
