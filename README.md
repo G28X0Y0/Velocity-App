@@ -1,5 +1,5 @@
 # Velocity App
-Built usinbg Vue.js, Google Maps API, and Java
+Built using Vue.js, Google Maps API, and Java
 
 ## Create, save, and edit routes for cycling!
 Fully featured app for creating routes for cycling! Simply register your user, add your gear to your profile, and start tracking!
